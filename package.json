@@ -1,0 +1,17 @@
+{
+  "name": "outside-cli",
+  "version": "1.0.0",
+  "description": "A CLI to get the weather based on user-input location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "bin": "bin/outside",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "ora": "^3.1.0",
+    "request": "^2.88.0"
+  }
+}

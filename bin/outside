@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+/* we're requiring the entire parent folder of bin/outside which is the actual project folder. Our entry point is
+    index.js as specified by our package.json file and it exports a function. We're calling that function here in the
+    require statement and calling the function with the blank parentheses */
+
+require('../')()
+
+module.exports = () => {
+    console.log ("hello world")
+}
