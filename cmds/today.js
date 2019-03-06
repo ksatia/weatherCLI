@@ -7,8 +7,7 @@ module.exports = (args) => {
     try {
         const location = args.location || args.l
         const city = (location.split(','))[0]
-
-        const results = weatherAPI(city, function (err, data) {
+        const results = weatherAPI(location, "today", function (err, data) {
             if (!err && data) {
                 const {temp} = data.main
                 const {main} = data.weather[0]
