@@ -5,14 +5,30 @@
 
 const https = require('https')
 
-module.exports = (location, callback) => {
+module.exports = (location, callType, callback) => {
+
+    // call the same networking code but pass in a parameter for "searchType" - write a ternary operator to see 
+    // if its "today" or "forecast" - depending on which, we can use a "const" for the path - both consts will
+    // be included outside of the exports file (don't need to export the const, only the response data)
     const formattedLocation = location.split(' ').join('+')
+
+    var weatherCall
+
+    switch (callType) {
+        case "today":
+            weatherCall = "weather"
+            break
+        case "forecast":
+            weatherCall = "forecast"
+            break
+    }
+
     const options = {
         hostname: "api.openweathermap.org",
-        path: `/data/2.5/weather?q=${formattedLocation}&appid=2064bed5488284ff55690da4bb180185&units=imperial`,
+        path: `/data/2.5/${weatherCall}?q=${formattedLocation}&appid=2064bed5488284ff55690da4bb180185&units=imperial`,
         method: "GET"
     }
-    
+
     // request function calls back with response data
     const req = https.request(options, (res) => {
         var aggregator = ''
@@ -21,7 +37,6 @@ module.exports = (location, callback) => {
         })
         res.on('end', () => {
             const parsed = JSON.parse(aggregator)
-            
             callback(false, parsed)
         })
     })
