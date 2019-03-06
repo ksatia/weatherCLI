@@ -10,7 +10,7 @@ const menus = {
     today: `
         outside today <options>
         
-        --location, -l .......the location to use (city name)`,
+        --location, -l .......the location to use ("city name, country code")`,
 
     version: `
         outside version
@@ -20,7 +20,7 @@ const menus = {
     forecast: `
         outside forecast <options>
         
-        --location, -l....... the location to use (city name)`
+        --location, -l....... the location to use ("city name, country code")`
 }
 
 // if we pass multiple commands without flags, args obect will have a K/O pair where key is _

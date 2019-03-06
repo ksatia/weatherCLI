@@ -1,15 +1,26 @@
 const weatherAPI = require('../utils/weather')
+const ora = require('ora')
 
 
 module.exports = (args) => {
+    const spinner = ora().start()
+    try {
         const location = args.location || args.l
-        const results = weatherAPI(location, function (err, data) {
-        
-            if (!err) {
+        const city = (location.split(','))[0]
+
+        const results = weatherAPI(city, function (err, data) {
+            if (!err && data) {
                 const {temp} = data.main
-                console.log(`The weather in ${location} is ${temp} degrees`)
+                const {main} = data.weather[0]
+                spinner.stop()
+                console.log(`Current weather in ${city}:`)
+                console.log(`\t${temp}° and ${main}`)
             } else {
-                if (data) {console.log("we have data")} else {console.log("no data yet")}
+                console.error(err.message)
             }
         })
-}
+    } catch (err) {
+        spinner.stop()
+        console.error(err.message)
+    }
+} 
