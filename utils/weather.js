@@ -25,7 +25,7 @@ module.exports = (location, callType, callback) => {
 
     const options = {
         hostname: "api.openweathermap.org",
-        path: `/data/2.5/${weatherCall}?q=${formattedLocation}&appid=2064bed5488284ff55690da4bb180185&units=imperial`,
+        path: `/data/2.5/${weatherCall}?q=${formattedLocation}&appid=${process.env.OPEN_WEATHER_KEY}&units=imperial`,
         method: "GET"
     }
 
