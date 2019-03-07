@@ -5,7 +5,6 @@
     require statement and calling the function with the blank parentheses */
 
 require('../')()
-
 module.exports = () => {
     console.log ("hello world")
-}
+} 
