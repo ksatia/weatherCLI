@@ -3,9 +3,7 @@
 module.exports = () => {
     require('dotenv').config()
     const args = require('minimist')(process.argv.slice(2))
-    // console.log('Welcome to the outside')
-
-    console.log(args)
+    console.log('Welcome Outside')
 
     // default to a help menu if no command is passed to "outside"
     // this will also work if user types "outside help" because args._[0] equates to 'help'
