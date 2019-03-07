@@ -1,4 +1,4 @@
-
+const error = require('./utils/error')
 // export parameterless function as entrypoint to app
 module.exports = () => {
     require('dotenv').config()
@@ -45,7 +45,7 @@ module.exports = () => {
              break
 
         default:
-            console.error(`"${cmd}" is not a valid command, STOOPID`)
+            error(`${cmd} is not a valid command!\nUse \`outside help\` for more info.`, true)
             break
     }
 }
