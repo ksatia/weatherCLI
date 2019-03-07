@@ -1,5 +1,7 @@
-// export parameterless function
+
+// export parameterless function as entrypoint to app
 module.exports = () => {
+    require('dotenv').config()
     const args = require('minimist')(process.argv.slice(2))
     // console.log('Welcome to the outside')
 
